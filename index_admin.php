@@ -5,6 +5,8 @@
 
     require 'loginCheck.php';
 
+    include 'adminCheck.php';
+
     $sql = "SELECT courses.id, courses.name, coursestypes.id AS course_id, coursestypes.sector FROM `courses` JOIN coursestypes ON courses.id_sector = coursestypes.id";
 
     $op  = mysqli_query($con,$sql);

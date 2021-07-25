@@ -2,6 +2,10 @@
 require 'connectionDB.php';
 require 'loginCheck.php';
 
+$sql2 = 'select * from coursestypes';
+$op2 = mysqli_query($con,$sql2);
+
+
 $id = $_GET['id'];
 $id = filter_var($id,FILTER_SANITIZE_NUMBER_INT);
 
@@ -84,7 +88,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   <div class="form-group">
     <label for="exampleInputEmail1">Sector</label>
-    <input type="text"  name="sector" value= "<?php echo $data['id_sector'];?>" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter Sector">
+    <select name="sector" class="form-control">
+        <?php
+            while($sector_data = mysqli_fetch_assoc($op2)){
+        ?>
+        <option value="<?php echo $sector_data['id'];?>"><?php echo $sector_data['sector'];?></option>
+        <?php } ?>
+    </select>
   </div> 
   <button type="submit" class="btn btn-primary">Update</button>
 </form>

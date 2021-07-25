@@ -2,6 +2,9 @@
 require 'connectionDB.php';
 require 'loginCheck.php';
 
+$sql2 = 'select * from roles';
+$op2 = mysqli_query($con,$sql2);
+
 $id = $_GET['id'];
 $id = filter_var($id,FILTER_SANITIZE_NUMBER_INT);
 
@@ -95,7 +98,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Role</label>
-    <input type="text"  name="role" value= "<?php echo $data['role_id'];?>" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter Sector">
+    <select name="role" class="form-control">
+        <?php
+            while($role_data = mysqli_fetch_assoc($op2)){
+        ?>
+        <option value="<?php echo $role_data['id'];?>"><?php echo $role_data['role'];?></option>
+        <?php } ?>
+    </select>
   </div> 
   <button type="submit" class="btn btn-primary">Update</button>
 </form>

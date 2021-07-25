@@ -5,6 +5,7 @@
 
     require 'loginCheck.php';
 
+    include 'superAdminCheck.php';
 
     $sql = "SELECT courses.id, courses.name, coursestypes.id AS course_id, coursestypes.sector FROM `courses` JOIN coursestypes ON courses.id_sector = coursestypes.id";
 
@@ -114,17 +115,7 @@
          <?php } ?>
             <!-- end table -->
         </table>
-
-    </div>
-    <!-- end .container -->
-
-        </div>
-
-        <!-- PHP code to read records will be here -->
-
-
-
-        <table class='table table-hover table-responsive table-bordered'>
+            <table class='table table-hover table-responsive table-bordered'>
             <!-- creating our table heading -->
             <tr>
                 <th>ID</th>
@@ -156,7 +147,18 @@
             <!-- end table -->
         </table>
 
+
     </div>
+    <!-- end .container -->
+
+        </div>
+
+        <!-- PHP code to read records will be here -->
+
+
+
+    
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

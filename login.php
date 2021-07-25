@@ -126,9 +126,10 @@
  
  
   <button type="submit" class="btn btn-primary">Login</button>
+  <h3>Register if you don't have an account</h3>
+<button><a href="register.php">Register</a></button>
 </form>
 </div>
-<h3>Register if you dont have an account</h3>
-<button><a href="register.php">Register</a></button>
+
 </body>
 </html>
